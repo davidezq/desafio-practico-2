@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">DesafioPractio2</string>
+    <string name="welcome">Bienvenido</string>
+    <string name="editUser">User</string>
+    <string name="editPassword">Password</string>
+    <string name="btnIngresar">Ingresar</string>
+    <string name="btnRegistrar">Crear cuenta</string>
+
+    <!--activity_crear_cuenta-->
+
+    <string name="textCrearCuenta">Crea tu cuenta</string>
+    <string name="editCrearUser">Email</string>
+    <string name="editCrearPassword">Password</string>
+    <string name="editCrearConfirmarPassword">Confirmar Password</string>
+    <string name="textCrearPasswordRequisito">El password debe de ser mayor a 6 caracteres</string>
+    <string name="btnCrearRegistrarse">Crear Cuenta</string>
+
+    <!-- menu -->
+    <string name="navPromedio">Promedio</string>
+    <string name="navSalario">Salario neto</string>
+    <string name="navSalir">Cerrar sesión</string>
+</resources>
