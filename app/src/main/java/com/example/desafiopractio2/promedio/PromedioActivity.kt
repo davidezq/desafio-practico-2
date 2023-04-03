@@ -1,4 +1,4 @@
-package com.example.desafiopractio2
+package com.example.desafiopractio2.promedio
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,9 +6,13 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
-import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.desafiopractio2.CrearCuentaActivity
+import com.example.desafiopractio2.MainActivity
+import com.example.desafiopractio2.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -26,6 +30,13 @@ class PromedioActivity : AppCompatActivity() {
         firebaseAuth = Firebase.auth
         db = FirebaseFirestore.getInstance()
 
+        getAlumnos()
+
+        var btnAgregar = findViewById<Button>(R.id.btnAgregarAlumno)
+        btnAgregar.setOnClickListener{
+            val i = Intent(this,CrearAlumnoActivity::class.java)
+            startActivity(i)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -49,12 +60,15 @@ class PromedioActivity : AppCompatActivity() {
     private fun signOut(){
         firebaseAuth.signOut()
         Toast.makeText(baseContext,"Sesión Cerrada",Toast.LENGTH_LONG).show()
-        val i = Intent(this,MainActivity::class.java)
+        val i = Intent(this, MainActivity::class.java)
         startActivity(i)
     }
 
-    /*private fun getData(){
-        var nombres= mutableListOf<String>()
+    private fun getAlumnos(){
+
+
+        var alumnos= mutableListOf<Alumno>()
+
         val email = firebaseAuth.currentUser?.email
         if (email != null) {
             db.collection("promedios")
@@ -63,16 +77,24 @@ class PromedioActivity : AppCompatActivity() {
                 .get()
                 .addOnSuccessListener { documents ->
                     for(doc in documents){
-                        nombres.add(doc.getString("nombre")!!)
+                        var alumno:Alumno = Alumno()
+                        alumno.id = doc.id
+                        alumno.nombre = doc.getString("nombre")!!
+                        alumno.notas = doc.get("notas") as List<Double>
+                        alumno.promedio = doc.getDouble("promedio")!!
+                        alumno.aprobo = doc.get("aprobado") as Boolean
+                        alumnos.add(alumno)
                     }
-                    textView.text = textView.text.toString() + nombres.joinToString()
 
+                    val recyclerView = findViewById<RecyclerView>(R.id.recyclerAlumnos)
+                    recyclerView.layoutManager = LinearLayoutManager(this)
+                    recyclerView.adapter = AlumnoAdapter(alumnos)
                 }
                 .addOnFailureListener { exception ->
                     Toast.makeText(baseContext, "Error al obtener documentos: $exception",Toast.LENGTH_LONG)
                 }
         }
-    }*/
+    }
 
 
 }

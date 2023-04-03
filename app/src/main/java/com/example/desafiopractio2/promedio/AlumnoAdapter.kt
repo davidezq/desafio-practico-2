@@ -2,27 +2,26 @@ package com.example.desafiopractio2.promedio
 
 import android.os.Parcel
 import android.os.Parcelable
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.desafiopractio2.R
 
-class AlumnoApadter() :RecyclerView.Adapter<AlumnoViewHolder>(), Parcelable {
-    constructor(parcel: Parcel) : this() {
+class AlumnoAdapter(val alumnosList:List<Alumno>) : RecyclerView.Adapter<AlumnoViewHolder>(){
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlumnoViewHolder {
+        val layoutInflater = LayoutInflater.from(parent.context)
+        return AlumnoViewHolder(layoutInflater.inflate(R.layout.item_alumno,parent,false))
+
     }
 
-    override fun writeToParcel(parcel: Parcel, flags: Int) {
-
+    override fun onBindViewHolder(holder: AlumnoViewHolder, position: Int) {
+        val item = alumnosList[position]
+        holder.render(item)
     }
 
-    override fun describeContents(): Int {
-        return 0
+    override fun getItemCount(): Int {
+        return alumnosList.size
     }
 
-    companion object CREATOR : Parcelable.Creator<AlumnoApadter> {
-        override fun createFromParcel(parcel: Parcel): AlumnoApadter {
-            return AlumnoApadter(parcel)
-        }
-
-        override fun newArray(size: Int): Array<AlumnoApadter?> {
-            return arrayOfNulls(size)
-        }
-    }
 }

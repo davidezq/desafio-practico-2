@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.example.desafiopractio2.promedio.PromedioActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
 import com.google.firebase.auth.ktx.auth
@@ -56,10 +57,10 @@ class MainActivity : AppCompatActivity() {
         firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
-                    val user = firebaseAuth.currentUser
-                    Toast.makeText(baseContext, user?.uid.toString(), Toast.LENGTH_LONG).show()
+                    // val user = firebaseAuth.currentUser
+                    // Toast.makeText(baseContext, user?.uid.toString(), Toast.LENGTH_LONG).show()
                     // Ir a AppActivity
-                    val i = Intent(this,AppActivity::class.java)
+                    val i = Intent(this, PromedioActivity::class.java)
                     startActivity(i)
                 } else {
                     Toast.makeText(baseContext, "Error de email y/o password", Toast.LENGTH_LONG)

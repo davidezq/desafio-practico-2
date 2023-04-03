@@ -15,6 +15,23 @@
     <string name="textCrearPasswordRequisito">El password debe de ser mayor a 6 caracteres</string>
     <string name="btnCrearRegistrarse">Crear Cuenta</string>
 
+    <!-- activity CrearAlumno -->
+    <string name="Promedio_titulo">Promedio De Notas</string>
+    <string name="Promedio_lbl_promedio">El promedio es: </string>
+    <string name="Promedio_txt_nombre">Nombre del alumno</string>
+    <string name="Promedio_txt_nota1">Nota 1</string>
+    <string name="Promedio_txt_nota2">Nota 2</string>
+    <string name="Promedio_txt_nota3">Nota 3</string>
+    <string name="Promedio_txt_nota4">Nota 4</string>
+    <string name="Promedio_txt_nota5">Nota 5</string>
+    <string name="Promedio_txt_promedio">Promedio</string>
+    <string name="Promedio_btn_calcular">Registrar</string>
+    <string name="Promedio_btn_editar">Editar</string>
+    <string name="Promedio_btn_borrar">Borrar</string>
+
+    <!-- activity editar alumno -->
+    <string name="editarAlumno_titulo">Editando usuario</string>
+
     <!-- menu -->
     <string name="navPromedio">Promedio</string>
     <string name="navSalario">Salario neto</string>
