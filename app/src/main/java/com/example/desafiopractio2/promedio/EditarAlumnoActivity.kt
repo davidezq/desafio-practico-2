@@ -91,8 +91,9 @@ class EditarAlumnoActivity : AppCompatActivity() {
                     "aprobado" to (promedio >= 6)
                 )
             ).addOnSuccessListener {
-                Toast.makeText(baseContext,"Alumno $nombreEstudiante editado",Toast.LENGTH_LONG).show()
-                val i = Intent(this,PromedioActivity::class.java)
+                Toast.makeText(baseContext, "Alumno $nombreEstudiante editado", Toast.LENGTH_LONG)
+                    .show()
+                val i = Intent(this, PromedioActivity::class.java)
                 startActivity(i)
             }
     }
@@ -104,7 +105,12 @@ class EditarAlumnoActivity : AppCompatActivity() {
             .document(intent.getStringExtra("id")!!)
             .delete()
             .addOnSuccessListener {
-                val i = Intent(this,PromedioActivity::class.java)
+                Toast.makeText(
+                    baseContext,
+                    "Alumno ${intent.getStringExtra("nombre")!!} eliminado",
+                    Toast.LENGTH_LONG
+                ).show()
+                val i = Intent(this, PromedioActivity::class.java)
                 startActivity(i)
             }
     }

@@ -29,13 +29,19 @@ class CrearAlumnoActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_calcular).setOnClickListener { submit() }
     }
 
-    private fun submit(){
+    private fun submit() {
         val nombreEstudiante = findViewById<EditText>(R.id.edtEditarAlumnoNombre).text
         var notas = DoubleArray(5)
-        for(i in 0..notas.size-1){
-            notas[i] = findViewById<EditText>(resources.getIdentifier("txt_nota${i+1}","id",packageName)).text.toString().toDouble()
-            if(notas[i] > 10){
-                Toast.makeText(this,"Revise las notas si son correctas", Toast.LENGTH_LONG).show()
+        for (i in 0..notas.size - 1) {
+            notas[i] = findViewById<EditText>(
+                resources.getIdentifier(
+                    "txt_nota${i + 1}",
+                    "id",
+                    packageName
+                )
+            ).text.toString().toDouble()
+            if (notas[i] > 10) {
+                Toast.makeText(this, "Revise las notas si son correctas", Toast.LENGTH_LONG).show()
                 return
             }
         }
@@ -53,12 +59,11 @@ class CrearAlumnoActivity : AppCompatActivity() {
                     "aprobado" to (promedio >= 6)
                 )
             ).addOnSuccessListener {
-                Toast.makeText(baseContext,"Alumno $nombreEstudiante guardado",Toast.LENGTH_LONG).show()
-                val i = Intent(this,PromedioActivity::class.java)
+                Toast.makeText(baseContext, "Alumno $nombreEstudiante guardado", Toast.LENGTH_LONG)
+                    .show()
+                val i = Intent(this, PromedioActivity::class.java)
                 startActivity(i)
             }
-
-
     }
 
 }

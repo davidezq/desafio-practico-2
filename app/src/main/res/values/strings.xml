@@ -32,6 +32,16 @@
     <!-- activity editar alumno -->
     <string name="editarAlumno_titulo">Editando usuario</string>
 
+
+    <!-- activity CrearEmpleado -->
+    <string name="Salario_titulo">Salario Neto</string>
+    <string name="Salario_txt_nombre">Nombre del trabajador</string>
+    <string name="Salario_txt_salarioBase">Salario Base</string>
+    <string name="Salario_btn_calcular">Calcular</string>
+
+    <!-- activity EditarEmpleados -->
+    <string name="Salario_btn_editar">Editar</string>
+    <string name="Salario_btn_eliminar">Eliminar</string>
     <!-- menu -->
     <string name="navPromedio">Promedio</string>
     <string name="navSalario">Salario neto</string>
